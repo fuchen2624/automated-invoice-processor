@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Invoices</title>
+</head>
+<body>
+    <h2>Search Invoices</h2>
+    <form method="get">
+        <input type="text" name="q" value="{{ request.GET.q }}" placeholder="Search invoices...">
+        <button type="submit">Search</button>
+    </form>
+    <table>
+        <tr>
+            <th>Invoice Number</th>
+            <th>Vendor</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Source</th>
+            <th>Status</th>
+            <th>Errors</th>
+        </tr>
+        {% for invoice in invoices %}
+        <tr>
+            <td>{{ invoice.invoice_number|default:"N/A" }}</td>
+            <td>{{ invoice.vendor_name|default:"N/A" }}</td>
+            <td>{{ invoice.invoice_date|default:"N/A" }}</td>
+            <td>{{ invoice.total_amount|default:"N/A" }}</td>
+            <td>{{ invoice.source }}</td>
+            <td>{% if invoice.processed %}Processed{% else %}Failed{% endif %}</td>
+            <td>{{ invoice.processing_errors|default:"" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="7">No invoices found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

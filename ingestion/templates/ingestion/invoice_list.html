@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processed Invoices</title>
+</head>
+<body>
+    <h2>Processed Invoices</h2>
+    <table>
+        <tr>
+            <th>Invoice Number</th>
+            <th>Vendor</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Source</th>
+        </tr>
+        {% for invoice in invoices %}
+        <tr>
+            <td>{{ invoice.invoice_number }}</td>
+            <td>{{ invoice.vendor_name }}</td>
+            <td>{{ invoice.invoice_date }}</td>
+            <td>{{ invoice.total_amount }}</td>
+            <td>{{ invoice.source }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

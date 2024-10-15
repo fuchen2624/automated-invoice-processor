@@ -1,3 +1,51 @@
-venv/
-*.pyc
+# Python
+*.py[cod]
 __pycache__/
+*.so
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Virtual environment
+myenv/
+venv/
+env/
+ENV/
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+.env
+media/
+/static/
+celerybeat-schedule
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.bak
+*.tmp
+*.temp
